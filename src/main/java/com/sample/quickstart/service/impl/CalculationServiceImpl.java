@@ -45,6 +45,5 @@ public class CalculationServiceImpl implements CalculationService {
         results.put("sum", sumResult);
 
         return results;
-        
     }
 }

@@ -4,5 +4,5 @@ import java.util.Map;
 
 public interface CalculationService {
 
-    public Map<String, Integer> calculation();
+    Map<String, Integer> calculation();
 }

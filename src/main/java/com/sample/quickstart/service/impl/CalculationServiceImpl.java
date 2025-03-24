@@ -1,5 +1,6 @@
 package com.sample.quickstart.service.impl;
 
+import com.sample.quickstart.dto.CalculationDTO;
 import com.sample.quickstart.service.CalculationService;
 import org.springframework.stereotype.Service;
 
@@ -9,36 +10,31 @@ import java.util.Map;
 @Service
 public class CalculationServiceImpl implements CalculationService {
 
-    private int a;
-    private int b;
+    private CalculationDTO calculationDTO;
 
-    public Integer setA(int a) {
-        this.a = a;
-        return a;
-    }
-
-    public Integer setB(int b) {
-        this.b = b;
-        return b;
+    private void setCalculationDTO(CalculationDTO calculationDTO){
+        this.calculationDTO = calculationDTO;
     }
 
     public Integer sum(){
-        System.out.println(a+b);
-        return(a+b);
+        int result = calculationDTO.getA() + calculationDTO.getB();
+        System.out.println(result);
+        return(result);
     }
 
     public Integer sub(){
-        System.out.println(a-b);
-        return(a-b);
+        int result = calculationDTO.getA() - calculationDTO.getB();
+        System.out.println(result);
+        return(result);
     }
 
     public Map<String, Integer> calculation(){
-        CalculationServiceImpl calcService = new CalculationServiceImpl();
-        calcService.setA(10);
-        calcService.setB(6);
+        CalculationDTO dto = new CalculationDTO();
+        dto.setA(10);
+        dto.setB(6);
 
-        int substractionResult = calcService.sub();
-        int sumResult = calcService.sum();
+        int substractionResult = this.sub();
+        int sumResult = this.sum();
 
         Map<String, Integer> results = new HashMap<>();
         results.put("substraction", substractionResult);

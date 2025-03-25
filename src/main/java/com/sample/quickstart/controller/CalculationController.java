@@ -1,10 +1,12 @@
 package com.sample.quickstart.controller;
 
+import com.sample.quickstart.dto.CalculationDTO;
 import com.sample.quickstart.service.CalculationService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -25,8 +27,8 @@ public class CalculationController {
 //    }
 
     @PostMapping
-    public ResponseEntity<Map<String,Integer>> calculate() {
-        Map<String, Integer> results = calculationService.calculation();
+    public ResponseEntity<Map<String,Number>> calculate(@RequestBody CalculationDTO calculationDTO) {
+        Map<String, Number> results = calculationService.calculation(calculationDTO);
         return ResponseEntity.ok(results);
     }
 

@@ -12,20 +12,20 @@ import java.util.Map;
 @Service
 public class CalculationServiceImpl implements CalculationService {
 
-    public Integer sum(CalculationDTO calculationDTO){
-        int result = calculationDTO.getA() + calculationDTO.getB();
+    public double sum(CalculationDTO calculationDTO){
+        double result = calculationDTO.getA() + calculationDTO.getB();
         System.out.println(result);
         return(result);
     }
 
-    public Integer sub(CalculationDTO calculationDTO){
-        int result = calculationDTO.getA() - calculationDTO.getB();
+    public double sub(CalculationDTO calculationDTO){
+        double result = calculationDTO.getA() - calculationDTO.getB();
         System.out.println(result);
         return(result);
     }
 
-    public Integer multi(CalculationDTO calculationDTO){
-        int result = calculationDTO.getA() * calculationDTO.getB();
+    public double multi(CalculationDTO calculationDTO){
+        double result = calculationDTO.getA() * calculationDTO.getB();
         System.out.println(result);
         return (result);
     }
@@ -44,9 +44,9 @@ public class CalculationServiceImpl implements CalculationService {
 
         log.info("calculation method accessed");
 
-        int subtractionResult = this.sub(calculationDTO);
-        int sumResult = this.sum(calculationDTO);
-        int multiResult = this.multi(calculationDTO);
+        double subtractionResult = this.sub(calculationDTO);
+        double sumResult = this.sum(calculationDTO);
+        double multiResult = this.multi(calculationDTO);
         double divideResult = this.divide(calculationDTO);
 
         Map<String, Number> results = new HashMap<>();

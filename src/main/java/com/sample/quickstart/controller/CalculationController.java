@@ -20,14 +20,10 @@ public class CalculationController {
     @Autowired
     CalculationService calculationService;
 
-//    @PostMapping
-//    public String calculate(){
-//        calculationService.calculation();
-//        return "success";
-//    }
 
     @PostMapping
     public ResponseEntity<Map<String,Number>> calculate(@RequestBody CalculationDTO calculationDTO) {
+        log.info("CalculationController --> calculate method accessed");
         Map<String, Number> results = calculationService.calculation(calculationDTO);
         return ResponseEntity.ok(results);
     }

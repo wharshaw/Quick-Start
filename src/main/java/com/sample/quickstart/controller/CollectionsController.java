@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 @RequestMapping("api/collections")
 @RestController
@@ -24,6 +25,11 @@ public class CollectionsController {
     public boolean contains(){
         ArrayList<Integer> arr = collectionsService.arrayList();
         return arr.contains(10);
+    }
+
+    @PostMapping("/linkedlist")
+    public LinkedList<Integer> linkedList(){
+        return collectionsService.linkedList();
     }
 
 }
